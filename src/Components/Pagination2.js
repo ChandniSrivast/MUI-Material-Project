@@ -4,8 +4,8 @@ import ReactPaginate from "react-paginate";
 
 function Pagination2() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [data, setData] = useState([]);
-
+  const [data,setData] = useState([]);
+  const [modal,setModal] = useState(false);
   const [postperPage] = useState(5);
   const [pageCount, setPageCount] = useState(0);
 
@@ -37,10 +37,14 @@ function Pagination2() {
     let selected = e.selected;
     setCurrentPage(selected + 1);
   };
+  const toggle = () => {
+    setModal(!modal);
+  }
 
   return (
     <>
       <div>
+        <button onClick={()=>toggle()}>+</button>
         {data}
 
         <ReactPaginate
